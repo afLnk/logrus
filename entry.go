@@ -217,7 +217,7 @@ func (entry Entry) log(level Level, msg string) {
 
 	entry.Level = level
 	entry.Message = msg
-	if entry.Logger.ReportCaller {
+	if entry.Logger.ReportCaller && entry.Caller == nil {
 		entry.Caller = getCaller()
 	}
 
